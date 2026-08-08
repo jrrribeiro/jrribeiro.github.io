@@ -3,998 +3,127 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Jonathan Ramos Ribeiro - pesquisador em monitoramento acústico passivo, ecologia de comunidades e populações, conservação e bioacústica de aves." />
-  <title>Jonathan Ramos Ribeiro | Pesquisa, código e conservação</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #f3efe6;
-      --bg-soft: #e8dfcf;
-      --surface: rgba(255, 252, 247, 0.82);
-      --text: #12251f;
-      --muted: #51645d;
-      --line: rgba(18, 37, 31, 0.12);
-      --accent: #0f6a57;
-      --accent-2: #c56a3a;
-      --accent-3: #2c4a7a;
-      --shadow: 0 18px 50px rgba(29, 40, 35, 0.12);
-      --radius-xl: 30px;
-      --radius-lg: 22px;
-      --content-width: 1120px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: 'Manrope', sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(15, 106, 87, 0.12), transparent 35%),
-        radial-gradient(circle at 85% 10%, rgba(197, 106, 58, 0.14), transparent 30%),
-        linear-gradient(180deg, var(--bg) 0%, #f8f4ec 46%, #f3efe6 100%);
-      min-height: 100vh;
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .page { position: relative; overflow: hidden; }
-
-    .page::before,
-    .page::after {
-      content: '';
-      position: fixed;
-      width: 22rem;
-      height: 22rem;
-      border-radius: 50%;
-      filter: blur(50px);
-      opacity: 0.35;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .page::before {
-      top: -7rem;
-      right: -6rem;
-      background: rgba(15, 106, 87, 0.22);
-    }
-
-    .page::after {
-      left: -8rem;
-      bottom: 8rem;
-      background: rgba(44, 74, 122, 0.16);
-    }
-
-    .wrap {
-      position: relative;
-      z-index: 1;
-      width: min(100% - 1.5rem, var(--content-width));
-      margin: 0 auto;
-    }
-
-    .skip-link {
-      position: absolute;
-      left: 1rem;
-      top: -4rem;
-      padding: 0.75rem 1rem;
-      border-radius: 999px;
-      background: var(--text);
-      color: #fff;
-      transition: top 0.2s ease;
-      z-index: 20;
-    }
-
-    .skip-link:focus { top: 1rem; }
-
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1.2rem 0 1rem;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.85rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.82rem;
-    }
-
-    .brand-mark {
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 50%;
-      background: linear-gradient(145deg, var(--accent), var(--accent-3));
-      display: grid;
-      place-items: center;
-      color: #fff;
-      font-family: 'Fraunces', serif;
-      font-size: 1.05rem;
-    }
-
-    .top-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .lang-switch,
-    .pill,
-    .nav a,
-    .cta,
-    .ghost {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.45);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
-    }
-
-    .lang-switch {
-      display: inline-flex;
-      padding: 0.2rem;
-      gap: 0.2rem;
-    }
-
-    .lang-switch button {
-      appearance: none;
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      padding: 0.55rem 0.9rem;
-      border-radius: 999px;
-      font: inherit;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .lang-switch button.is-active {
-      background: var(--text);
-      color: #fff;
-    }
-
-    .lang-switch button:focus-visible,
-    .cta:focus-visible,
-    .ghost:focus-visible,
-    .nav a:focus-visible,
-    .pill:focus-visible {
-      outline: 3px solid rgba(15, 106, 87, 0.35);
-      outline-offset: 2px;
-    }
-
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      padding: 0.4rem 0 1.2rem;
-    }
-
-    .nav a {
-      padding: 0.68rem 1rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-      transition: 0.2s ease;
-    }
-
-    .nav a:hover,
-    .nav a:focus-visible {
-      color: var(--text);
-      transform: translateY(-1px);
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(290px, 0.7fr);
-      gap: 1.2rem;
-      align-items: stretch;
-      padding: 0.4rem 0 1.4rem;
-    }
-
-    .hero-main,
-    .hero-side,
-    .section,
-    .metric,
-    .card,
-    .timeline-item,
-    .project,
-    .resource,
-    .contact-box {
-      background: var(--surface);
-      border: 1px solid rgba(18, 37, 31, 0.08);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-    }
-
-    .hero-main {
-      border-radius: var(--radius-xl);
-      padding: clamp(1.4rem, 4vw, 2.8rem);
-      display: grid;
-      gap: 1.2rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-main::after {
-      content: '';
-      position: absolute;
-      inset: auto -4rem -5rem auto;
-      width: 14rem;
-      height: 14rem;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(15, 106, 87, 0.22), transparent 65%);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      width: fit-content;
-      padding: 0.35rem 0.85rem;
-      border-radius: 999px;
-      background: rgba(15, 106, 87, 0.1);
-      color: var(--accent);
-      font-size: 0.86rem;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-    }
-
-    .eyebrow::before {
-      content: '';
-      width: 0.55rem;
-      height: 0.55rem;
-      border-radius: 50%;
-      background: currentColor;
-    }
-
-    h1, h2, h3 {
-      margin: 0;
-      line-height: 1.08;
-      font-family: 'Fraunces', serif;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-    }
-
-    h1 {
-      font-size: clamp(2.7rem, 6vw, 5.3rem);
-      max-width: 12ch;
-    }
-
-    .hero-copy {
-      display: grid;
-      gap: 1rem;
-      max-width: 58ch;
-      font-size: 1.04rem;
-      color: var(--muted);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .cta,
-    .ghost {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.55rem;
-      padding: 0.9rem 1.15rem;
-      font-weight: 800;
-      transition: 0.2s ease;
-    }
-
-    .cta {
-      background: linear-gradient(135deg, var(--accent), #0d7b63);
-      color: #fff;
-      border-color: transparent;
-    }
-
-    .ghost {
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.35);
-    }
-
-    .cta:hover,
-    .ghost:hover,
-    .resource:hover,
-    .project:hover,
-    .card:hover {
-      transform: translateY(-2px);
-    }
-
-    .hero-side {
-      border-radius: var(--radius-xl);
-      padding: 1.35rem;
-      display: grid;
-      gap: 1rem;
-      align-content: start;
-    }
-
-    .portrait {
-      aspect-ratio: 1 / 1;
-      border-radius: 24px;
-      background:
-        linear-gradient(150deg, rgba(15, 106, 87, 0.95), rgba(44, 74, 122, 0.92)),
-        linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent);
-      padding: 1.3rem;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .portrait::before,
-    .portrait::after {
-      content: '';
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .portrait::before {
-      width: 12rem;
-      height: 12rem;
-      right: -4rem;
-      top: -3rem;
-    }
-
-    .portrait::after {
-      width: 8rem;
-      height: 8rem;
-      left: -2rem;
-      bottom: -2rem;
-    }
-
-    .portrait-name {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      gap: 0.35rem;
-    }
-
-    .portrait-name strong {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(1.6rem, 4vw, 2.35rem);
-      line-height: 1.02;
-    }
-
-    .portrait-name span,
-    .portrait-meta {
-      color: rgba(255, 255, 255, 0.82);
-    }
-
-    .portrait-meta {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      gap: 0.7rem;
-      font-size: 0.95rem;
-    }
-
-    .portrait-meta div {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      padding-bottom: 0.55rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.75rem;
-    }
-
-    .metric {
-      border-radius: 20px;
-      padding: 1rem;
-      display: grid;
-      gap: 0.35rem;
-      min-height: 7.25rem;
-    }
-
-    .metric strong {
-      font-size: 1.7rem;
-      font-family: 'Fraunces', serif;
-    }
-
-    .metric span { color: var(--muted); font-size: 0.95rem; }
-
-    main {
-      display: grid;
-      gap: 1rem;
-      padding: 0 0 2rem;
-    }
-
-    .section {
-      border-radius: var(--radius-xl);
-      padding: clamp(1.25rem, 3vw, 2rem);
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: end;
-      margin-bottom: 1.1rem;
-      flex-wrap: wrap;
-    }
-
-    .section-header p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 62ch;
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.9rem;
-    }
-
-    .pill {
-      padding: 0.52rem 0.78rem;
-      color: var(--muted);
-      font-size: 0.89rem;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .card,
-    .project,
-    .resource,
-    .timeline-item,
-    .contact-box {
-      border-radius: var(--radius-lg);
-      padding: 1.1rem;
-    }
-
-    .card h3,
-    .project h3,
-    .resource h3,
-    .timeline-item h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .card p,
-    .project p,
-    .resource p,
-    .timeline-item p,
-    .contact-box p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .meta-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.9rem;
-    }
-
-    .meta-list span {
-      padding: 0.35rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(15, 106, 87, 0.09);
-      color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 700;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 0.85rem;
-    }
-
-    .timeline-item {
-      display: grid;
-      gap: 0.45rem;
-      border-left: 4px solid var(--accent);
-    }
-
-    .project {
-      display: grid;
-      gap: 0.8rem;
-      min-height: 100%;
-    }
-
-    .project strong,
-    .resource strong {
-      color: var(--accent);
-      font-size: 0.84rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .resource {
-      display: grid;
-      gap: 0.65rem;
-      min-height: 100%;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 1rem;
-    }
-
-    .contact-box {
-      display: grid;
-      gap: 0.8rem;
-      align-content: start;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-    }
-
-    .contact-links a {
-      color: var(--accent);
-      font-weight: 800;
-    }
-
-    .footer {
-      padding: 0.7rem 0 1.8rem;
-      color: var(--muted);
-      font-size: 0.94rem;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    [data-lang] { display: none; }
-    [data-lang].is-active { display: block; }
-    .lang-inline[data-lang].is-active { display: inline; }
-
-    @media (max-width: 980px) {
-      .hero,
-      .contact-grid,
-      .grid-3,
-      .grid-2,
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .topbar,
-      .section-header {
-        align-items: start;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .wrap { width: min(100% - 1rem, var(--content-width)); }
-
-      .topbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .top-actions {
-        width: 100%;
-        justify-content: space-between;
-      }
-
-      .nav {
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        padding-bottom: 0.5rem;
-        scrollbar-width: none;
-      }
-
-      .nav::-webkit-scrollbar { display: none; }
-
-      h1 { max-width: 100%; }
-
-      .hero-main,
-      .hero-side,
-      .section {
-        border-radius: 24px;
-      }
-    }
-  </style>
+  <meta name="description" content="Jonathan Ribeiro - pesquisador em monitoramento acústico passivo, ecologia de comunidades e populações, conservação e bioacústica de aves." />
+  <title>Jonathan Ribeiro | Pesquisa, código e conservação</title>
+  <link rel="stylesheet" href="assets/site.css" />
+  <script defer src="assets/site.js"></script>
 </head>
 <body>
-  <div class="page">
-    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-    <div class="wrap">
-      <header>
-        <div class="topbar">
-          <a class="brand" href="#top" aria-label="Jonathan Ramos Ribeiro home">
-            <span class="brand-mark">JRR</span>
-            <span>JRR Ribeiro</span>
-          </a>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="wrap">
+    <header class="site-header">
+      <div class="topbar">
+        <a class="brand" href="index.html" aria-label="Jonathan Ribeiro home">
+          <span class="brand-mark">JRR</span>
+          <span>Jonathan Ribeiro</span>
+        </a>
+        <div class="site-actions">
+          <div class="lang-switch" aria-label="Language switch">
+            <span class="muted">PT</span>
+            <button type="button" data-lang-toggle="pt" aria-pressed="true">Português</button>
+            <span class="muted">/</span>
+            <button type="button" data-lang-toggle="en" aria-pressed="false">English</button>
+          </div>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="index.html">Home</a>
+        <a href="about.html">Sobre</a>
+        <a href="research.html">Pesquisa</a>
+        <a href="projects.html">Projetos</a>
+        <a href="teaching.html">Ensino</a>
+        <a href="publications.html">Publicações</a>
+        <a href="code.html">Código</a>
+        <a href="contact.html">Contato</a>
+      </nav>
+    </header>
 
-          <div class="top-actions">
-            <div class="lang-switch" role="tablist" aria-label="Idioma / Language">
-              <button id="btn-pt" class="is-active" type="button" aria-pressed="true">PT</button>
-              <button id="btn-en" type="button" aria-pressed="false">EN</button>
-            </div>
+    <main id="conteudo">
+      <section class="hero home-hero">
+        <div class="home-hero-copy">
+          <span class="kicker inline-lang is-active" data-lang="pt">Pesquisador em aves, som e conservação</span>
+          <span class="kicker inline-lang" data-lang="en">Researcher in birds, sound, and conservation</span>
+
+          <h1 data-lang="pt" class="is-active">Jonathan Ribeiro</h1>
+          <h1 data-lang="en">Jonathan Ribeiro</h1>
+
+          <div class="hero-copy">
+            <p data-lang="pt" class="is-active">Meu trabalho conecta monitoramento acústico passivo, ecologia de comunidades e populações, conservação e bioacústica, sempre com foco em aves. Este site reúne minha apresentação, projetos, publicações e ferramentas de pesquisa.</p>
+            <p data-lang="en">My work connects passive acoustic monitoring, community and population ecology, conservation, and bioacoustics, always focused on birds. This site brings together my introduction, projects, publications, and research tools.</p>
+            <p data-lang="pt" class="is-active">A proposta aqui é ser clara, leve e fácil de navegar em qualquer tela, sem excesso de elementos visuais.</p>
+            <p data-lang="en">The goal here is to stay clear, lightweight, and easy to navigate on any screen, without visual clutter.</p>
+          </div>
+
+          <div class="home-hero-links">
+            <a class="text-link inline-lang is-active" data-lang="pt" href="about.html">Conheça minha trajetória <span>→</span></a>
+            <a class="text-link inline-lang" data-lang="en" href="about.html">Learn about my background <span>→</span></a>
+            <a class="text-link inline-lang is-active" data-lang="pt" href="research.html">Veja minhas linhas de pesquisa <span>→</span></a>
+            <a class="text-link inline-lang" data-lang="en" href="research.html">See my research lines <span>→</span></a>
+            <a class="text-link inline-lang is-active" data-lang="pt" href="projects.html">Acompanhe os projetos <span>→</span></a>
+            <a class="text-link inline-lang" data-lang="en" href="projects.html">Follow the projects <span>→</span></a>
           </div>
         </div>
 
-        <nav class="nav" aria-label="Navegação principal">
-          <a href="#sobre" data-lang="pt" class="lang-inline is-active">Sobre</a>
-          <a href="#sobre" data-lang="en" class="lang-inline">About</a>
-          <a href="#pesquisa" data-lang="pt" class="lang-inline is-active">Pesquisa</a>
-          <a href="#pesquisa" data-lang="en" class="lang-inline">Research</a>
-          <a href="#projetos" data-lang="pt" class="lang-inline is-active">Projetos</a>
-          <a href="#projetos" data-lang="en" class="lang-inline">Projects</a>
-          <a href="#ensino" data-lang="pt" class="lang-inline is-active">Ensino</a>
-          <a href="#ensino" data-lang="en" class="lang-inline">Teaching</a>
-          <a href="#publicacoes" data-lang="pt" class="lang-inline is-active">Publicações</a>
-          <a href="#publicacoes" data-lang="en" class="lang-inline">Publications</a>
-          <a href="#codigo" data-lang="pt" class="lang-inline is-active">Código</a>
-          <a href="#codigo" data-lang="en" class="lang-inline">Code</a>
-          <a href="#contato" data-lang="pt" class="lang-inline is-active">Contato</a>
-          <a href="#contato" data-lang="en" class="lang-inline">Contact</a>
-        </nav>
-      </header>
-
-      <section class="hero" id="top">
-        <article class="hero-main">
-          <span class="eyebrow lang-inline is-active" data-lang="pt">Pesquisador em bioacústica e conservação</span>
-          <span class="eyebrow lang-inline" data-lang="en">Researcher in bioacoustics and conservation</span>
-
-          <div>
-            <h1 data-lang="pt" class="is-active">Ciência, som e conservação para entender as aves.</h1>
-            <h1 data-lang="en">Science, sound, and conservation to understand birds.</h1>
+        <div class="photo-grid" aria-label="Composição de imagens provisória">
+          <div class="photo-large" role="img" aria-label="Placeholder para fotografia principal"></div>
+          <div class="photo-stack">
+            <div class="photo-medium" role="img" aria-label="Placeholder para fotografia secundária"></div>
+            <div class="photo-small" role="img" aria-label="Placeholder para fotografia secundária"></div>
           </div>
-
-          <div class="hero-copy">
-            <p data-lang="pt" class="is-active">Sou Jonathan Ramos Ribeiro, pesquisador com foco em monitoramento acústico passivo, ecologia de comunidades e populações, conservação e bioacústica de aves. Este site reúne minhas linhas de pesquisa, projetos, produção acadêmica e desenvolvimento em R e Python.</p>
-            <p data-lang="en">I am Jonathan Ramos Ribeiro, a researcher focused on passive acoustic monitoring, community and population ecology, conservation, and bird bioacoustics. This website brings together my research lines, projects, academic output, and my work in R and Python.</p>
-            <p data-lang="pt" class="is-active">A ideia é manter tudo organizado, acessível em dispositivos móveis e preparado desde o início para funcionar em português e inglês.</p>
-            <p data-lang="en">The goal is to keep everything organized, mobile-friendly, and ready from the start for both Portuguese and English.</p>
-          </div>
-
-          <div class="hero-actions">
-            <a class="cta lang-inline is-active" href="#contato" data-lang="pt">Entrar em contato</a>
-            <a class="cta lang-inline" href="#contato" data-lang="en">Get in touch</a>
-            <a class="ghost lang-inline is-active" href="#projetos" data-lang="pt">Ver projetos</a>
-            <a class="ghost lang-inline" href="#projetos" data-lang="en">View projects</a>
-          </div>
-        </article>
-
-        <aside class="hero-side">
-          <div class="portrait" aria-label="Resumo profissional">
-            <div class="portrait-name">
-              <strong>Jonathan Ramos Ribeiro</strong>
-              <span data-lang="pt" class="lang-inline is-active">Pesquisador em aves, som e conservação</span>
-              <span data-lang="en" class="lang-inline">Researcher in birds, sound, and conservation</span>
-            </div>
-
-            <div class="portrait-meta">
-              <div>
-                <span data-lang="pt" class="lang-inline is-active">Foco</span>
-                <span data-lang="en" class="lang-inline">Focus</span>
-                <strong>Bioacústica / Conservation</strong>
-              </div>
-              <div>
-                <span data-lang="pt" class="lang-inline is-active">Ferramentas</span>
-                <span data-lang="en" class="lang-inline">Tools</span>
-                <strong>R / Python</strong>
-              </div>
-              <div>
-                <span data-lang="pt" class="lang-inline is-active">Abordagem</span>
-                <span data-lang="en" class="lang-inline">Approach</span>
-                <strong>Dados, ecologia e impacto</strong>
-              </div>
-            </div>
-          </div>
-
-          <div class="stats" aria-label="Resumo rápido">
-            <div class="metric">
-              <strong>05+</strong>
-              <span data-lang="pt" class="is-active">áreas conectadas ao trabalho científico</span>
-              <span data-lang="en">connected areas in my scientific work</span>
-            </div>
-            <div class="metric">
-              <strong>2</strong>
-              <span data-lang="pt" class="is-active">idiomas no site desde o início</span>
-              <span data-lang="en">languages available from day one</span>
-            </div>
-            <div class="metric">
-              <strong>R + Python</strong>
-              <span data-lang="pt" class="is-active">para análise, automação e reprodutibilidade</span>
-              <span data-lang="en">for analysis, automation, and reproducibility</span>
-            </div>
-          </div>
-        </aside>
+          <div class="photo-wide" role="img" aria-label="Placeholder panorâmico para fotografia de apoio"></div>
+        </div>
       </section>
 
-      <main id="conteudo">
-        <section class="section" id="sobre">
-          <div class="section-header">
-            <div>
-              <h2 data-lang="pt" class="is-active">Sobre mim</h2>
-              <h2 data-lang="en">About me</h2>
-            </div>
-            <p data-lang="pt" class="is-active">Um ponto de partida claro para apresentar quem você é, o que pesquisa e como organiza sua produção.</p>
-            <p data-lang="en">A clear starting point to present who you are, what you study, and how you organize your work.</p>
-          </div>
+      <section class="section home-strip" aria-label="Atalhos do site">
+        <div class="entry">
+          <span class="entry-title inline-lang is-active" data-lang="pt">Pesquisa</span>
+          <span class="entry-title inline-lang" data-lang="en">Research</span>
+          <p data-lang="pt" class="is-active">Monitoramento acústico, ecologia e conservação em aves.</p>
+          <p data-lang="en">Acoustic monitoring, ecology, and bird conservation.</p>
+        </div>
+        <div class="entry">
+          <span class="entry-title inline-lang is-active" data-lang="pt">Publicações</span>
+          <span class="entry-title inline-lang" data-lang="en">Publications</span>
+          <p data-lang="pt" class="is-active">Artigos, capítulos e outros resultados acadêmicos.</p>
+          <p data-lang="en">Papers, chapters, and other academic outputs.</p>
+        </div>
+        <div class="entry">
+          <span class="entry-title inline-lang is-active" data-lang="pt">Código</span>
+          <span class="entry-title inline-lang" data-lang="en">Code</span>
+          <p data-lang="pt" class="is-active">Scripts, pacotes e fluxos em R e Python.</p>
+          <p data-lang="en">Scripts, packages, and workflows in R and Python.</p>
+        </div>
+        <div class="entry">
+          <span class="entry-title inline-lang is-active" data-lang="pt">Contato</span>
+          <span class="entry-title inline-lang" data-lang="en">Contact</span>
+          <p data-lang="pt" class="is-active">Canais para colaborações e parcerias.</p>
+          <p data-lang="en">Channels for collaborations and partnerships.</p>
+        </div>
+      </section>
 
-          <div class="grid-2">
-            <article class="card">
-              <h3 data-lang="pt" class="is-active">Linha de trabalho</h3>
-              <h3 data-lang="en">Research line</h3>
-              <p data-lang="pt" class="is-active">Meu trabalho combina ecologia de aves, gravações em campo, interpretação ecológica e ferramentas computacionais para apoiar decisões de pesquisa e conservação.</p>
-              <p data-lang="en">My work combines bird ecology, field recordings, ecological interpretation, and computational tools to support research and conservation decisions.</p>
-            </article>
-            <article class="card">
-              <h3 data-lang="pt" class="is-active">O que este site organiza</h3>
-              <h3 data-lang="en">What this site organizes</h3>
-              <p data-lang="pt" class="is-active">Projetos em andamento, disciplinas e atividades acadêmicas, publicações, softwares, pacotes, bases de dados e outros materiais úteis para quem acompanha meu trabalho.</p>
-              <p data-lang="en">Ongoing projects, teaching and academic activities, publications, software, packages, databases, and other useful materials for anyone following my work.</p>
-            </article>
-          </div>
-        </section>
+      <section class="section">
+        <div class="section-head">
+          <h2 data-lang="pt" class="is-active">Estrutura do site</h2>
+          <h2 data-lang="en">Site structure</h2>
+          <p data-lang="pt" class="is-active">As páginas estão separadas por tema para facilitar leitura e atualização.</p>
+          <p data-lang="en">The pages are separated by topic to make reading and updates easier.</p>
+        </div>
+        <ul class="grid-links">
+          <li><a href="about.html"><span>01</span> <span data-lang="pt" class="is-active">Sobre</span><span data-lang="en">About</span></a></li>
+          <li><a href="research.html"><span>02</span> <span data-lang="pt" class="is-active">Pesquisa</span><span data-lang="en">Research</span></a></li>
+          <li><a href="projects.html"><span>03</span> <span data-lang="pt" class="is-active">Projetos</span><span data-lang="en">Projects</span></a></li>
+          <li><a href="teaching.html"><span>04</span> <span data-lang="pt" class="is-active">Ensino</span><span data-lang="en">Teaching</span></a></li>
+          <li><a href="publications.html"><span>05</span> <span data-lang="pt" class="is-active">Publicações</span><span data-lang="en">Publications</span></a></li>
+          <li><a href="code.html"><span>06</span> <span data-lang="pt" class="is-active">Código</span><span data-lang="en">Code</span></a></li>
+        </ul>
+      </section>
+    </main>
 
-        <section class="section" id="pesquisa">
-          <div class="section-header">
-            <div>
-              <h2 data-lang="pt" class="is-active">Pesquisa</h2>
-              <h2 data-lang="en">Research</h2>
-            </div>
-            <p data-lang="pt" class="is-active">Os pilares que podem orientar a forma como você descreve seu perfil científico.</p>
-            <p data-lang="en">The pillars that can structure how your scientific profile is presented.</p>
-          </div>
-
-          <div class="grid-3">
-            <article class="card">
-              <h3 data-lang="pt" class="is-active">Monitoramento acústico passivo</h3>
-              <h3 data-lang="en">Passive acoustic monitoring</h3>
-              <p data-lang="pt" class="is-active">Uso de registros acústicos para acompanhar ocorrência, atividade e padrões temporais de aves em diferentes paisagens.</p>
-              <p data-lang="en">Using acoustic records to track occurrence, activity, and temporal patterns of birds across different landscapes.</p>
-              <div class="tag-row">
-                <span class="pill">Soundscapes</span>
-                <span class="pill">Detection</span>
-                <span class="pill">Monitoring</span>
-              </div>
-            </article>
-
-            <article class="card">
-              <h3 data-lang="pt" class="is-active">Ecologia de comunidades e populações</h3>
-              <h3 data-lang="en">Community and population ecology</h3>
-              <p data-lang="pt" class="is-active">Análises sobre composição, abundância, dinâmica e respostas das aves a mudanças ambientais e de uso da terra.</p>
-              <p data-lang="en">Analyses of composition, abundance, dynamics, and bird responses to environmental and land-use change.</p>
-              <div class="tag-row">
-                <span class="pill">Diversity</span>
-                <span class="pill">Abundance</span>
-                <span class="pill">Dynamics</span>
-              </div>
-            </article>
-
-            <article class="card">
-              <h3 data-lang="pt" class="is-active">Conservação e bioacústica</h3>
-              <h3 data-lang="en">Conservation and bioacoustics</h3>
-              <p data-lang="pt" class="is-active">Integração entre som, conservação e tomada de decisão para gerar conhecimento aplicado a espécies e áreas prioritárias.</p>
-              <p data-lang="en">Integrating sound, conservation, and decision-making to generate knowledge applied to species and priority areas.</p>
-              <div class="tag-row">
-                <span class="pill">Birds</span>
-                <span class="pill">Conservation</span>
-                <span class="pill">Acoustics</span>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="projetos">
-          <div class="section-header">
-            <div>
-              <h2 data-lang="pt" class="is-active">Projetos em desenvolvimento</h2>
-              <h2 data-lang="en">Projects in progress</h2>
-            </div>
-            <p data-lang="pt" class="is-active">Blocos para destacar linhas de pesquisa atuais e iniciativas que você queira acompanhar publicamente.</p>
-            <p data-lang="en">Blocks for highlighting current research lines and initiatives you want to share publicly.</p>
-          </div>
-
-          <div class="grid-2">
-            <article class="project">
-              <strong>01</strong>
-              <h3 data-lang="pt" class="is-active">Inventário acústico de aves</h3>
-              <h3 data-lang="en">Acoustic bird inventory</h3>
-              <p data-lang="pt" class="is-active">Projeto para consolidar registros, padronizar análises e gerar indicadores comparáveis entre áreas e períodos.</p>
-              <p data-lang="en">A project to consolidate records, standardize analyses, and generate comparable indicators across sites and periods.</p>
-            </article>
-
-            <article class="project">
-              <strong>02</strong>
-              <h3 data-lang="pt" class="is-active">Ferramentas em R e Python</h3>
-              <h3 data-lang="en">R and Python tools</h3>
-              <p data-lang="pt" class="is-active">Desenvolvimento de códigos para análise, organização de dados e automação de rotinas usadas nos meus trabalhos.</p>
-              <p data-lang="en">Development of code for analysis, data organization, and automation of routines used in my work.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="ensino">
-          <div class="section-header">
-            <div>
-              <h2 data-lang="pt" class="is-active">Ensino e atividades acadêmicas</h2>
-              <h2 data-lang="en">Teaching and academic activities</h2>
-            </div>
-            <p data-lang="pt" class="is-active">Um espaço para disciplinas, orientação, eventos, palestras e outras contribuições acadêmicas.</p>
-            <p data-lang="en">A space for courses, mentoring, events, talks, and other academic contributions.</p>
-          </div>
-
-          <div class="timeline">
-            <article class="timeline-item">
-              <h3 data-lang="pt" class="is-active">Disciplinas e minicursos</h3>
-              <h3 data-lang="en">Courses and short training</h3>
-              <p data-lang="pt" class="is-active">Lista para incluir disciplinas ministradas, oficinas, módulos práticos e materiais de apoio que possam ser disponibilizados no site.</p>
-              <p data-lang="en">A list for courses taught, workshops, practical modules, and support materials that can be made available on the site.</p>
-            </article>
-            <article class="timeline-item">
-              <h3 data-lang="pt" class="is-active">Atividades e colaboração</h3>
-              <h3 data-lang="en">Activities and collaboration</h3>
-              <p data-lang="pt" class="is-active">Seção para eventos, bancas, palestras, parcerias e ações de extensão relacionadas à conservação e às aves.</p>
-              <p data-lang="en">A section for events, committees, talks, partnerships, and outreach actions related to conservation and birds.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="publicacoes">
-          <div class="section-header">
-            <div>
-              <h2 data-lang="pt" class="is-active">Publicações</h2>
-              <h2 data-lang="en">Publications</h2>
-            </div>
-            <p data-lang="pt" class="is-active">Espaço para artigos, capítulos, preprints e outras saídas científicas.</p>
-            <p data-lang="en">Space for papers, chapters, preprints, and other scientific outputs.</p>
-          </div>
-
-          <div class="grid-2">
-            <article class="card">
-              <h3 data-lang="pt" class="is-active">Artigos científicos</h3>
-              <h3 data-lang="en">Scientific papers</h3>
-              <p data-lang="pt" class="is-active">Aqui você poderá listar publicações com destaque para tema, revista, ano e link para acesso aberto quando disponível.</p>
-              <p data-lang="en">This is where you can list publications with emphasis on topic, journal, year, and open-access links when available.</p>
-            </article>
-            <article class="card">
-              <h3 data-lang="pt" class="is-active">Outras produções</h3>
-              <h3 data-lang="en">Other outputs</h3>
-              <p data-lang="pt" class="is-active">Capítulos, notas técnicas, relatórios e materiais derivados de projetos também podem aparecer aqui.</p>
-              <p data-lang="en">Chapters, technical notes, reports, and materials derived from projects can also be featured here.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="codigo">
-          <div class="section-header">
-            <div>
-              <h2 data-lang="pt" class="is-active">Código, pacotes e bases de dados</h2>
-              <h2 data-lang="en">Code, packages, and databases</h2>
-            </div>
-            <p data-lang="pt" class="is-active">Uma vitrine para o lado mais reprodutível e colaborativo do seu trabalho.</p>
-            <p data-lang="en">A showcase for the most reproducible and collaborative side of your work.</p>
-          </div>
-
-          <div class="grid-3">
-            <article class="resource">
-              <strong>R</strong>
-              <h3 data-lang="pt" class="is-active">Scripts e rotinas</h3>
-              <h3 data-lang="en">Scripts and routines</h3>
-              <p data-lang="pt" class="is-active">Ferramentas para limpeza, análise e visualização de dados ecológicos e acústicos.</p>
-              <p data-lang="en">Tools for cleaning, analyzing, and visualizing ecological and acoustic data.</p>
-            </article>
-
-            <article class="resource">
-              <strong>Python</strong>
-              <h3 data-lang="pt" class="is-active">Automação e processamento</h3>
-              <h3 data-lang="en">Automation and processing</h3>
-              <p data-lang="pt" class="is-active">Código voltado para tarefas repetitivas, padronização de fluxos e apoio a análises maiores.</p>
-              <p data-lang="en">Code for repetitive tasks, workflow standardization, and support for larger analyses.</p>
-            </article>
-
-            <article class="resource">
-              <strong>Data</strong>
-              <h3 data-lang="pt" class="is-active">Bases e repositórios</h3>
-              <h3 data-lang="en">Datasets and repositories</h3>
-              <p data-lang="pt" class="is-active">Lugar para compartilhar bases organizadas, documentação e metadados com clareza.</p>
-              <p data-lang="en">A place to share curated datasets, documentation, and metadata with clarity.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="contato">
-          <div class="section-header">
-            <div>
-              <h2 data-lang="pt" class="is-active">Contato</h2>
-              <h2 data-lang="en">Contact</h2>
-            </div>
-            <p data-lang="pt" class="is-active">Você pode completar esta área com email, redes acadêmicas e links institucionais.</p>
-            <p data-lang="en">You can complete this area with email, academic profiles, and institutional links.</p>
-          </div>
-
-          <div class="contact-grid">
-            <article class="contact-box">
-              <h3 data-lang="pt" class="is-active">Vamos conversar</h3>
-              <h3 data-lang="en">Let's connect</h3>
-              <p data-lang="pt" class="is-active">Se quiser colaborar em monitoramento acústico, ecologia de aves, conservação ou desenvolvimento em R e Python, este será o melhor ponto de contato.</p>
-              <p data-lang="en">If you want to collaborate on acoustic monitoring, bird ecology, conservation, or R and Python development, this will be the best contact point.</p>
-              <div class="contact-links">
-                <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a>
-                <a href="#" aria-label="Google Scholar">Google Scholar</a>
-                <a href="#" aria-label="GitHub">GitHub</a>
-                <a href="#" aria-label="Lattes">Lattes</a>
-              </div>
-            </article>
-
-            <article class="contact-box">
-              <h3 data-lang="pt" class="is-active">Próximo passo</h3>
-              <h3 data-lang="en">Next step</h3>
-              <p data-lang="pt" class="is-active">Se eu quiser, eu posso transformar esta base em um site com navegação separada por páginas, blog, listagem dinâmica de publicações e integração com seus perfis acadêmicos.</p>
-              <p data-lang="en">If you want, I can turn this base into a multi-page site with separate navigation, blog support, dynamic publication listings, and integration with your academic profiles.</p>
-            </article>
-          </div>
-        </section>
-      </main>
-
-      <footer class="footer">
-        <span data-lang="pt" class="is-active">Feito para crescer com sua produção acadêmica.</span>
-        <span data-lang="en">Built to grow with your academic output.</span>
-        <span>© Jonathan Ramos Ribeiro</span>
-      </footer>
-    </div>
+    <footer class="footer">
+      <p data-lang="pt" class="is-active">Base limpa, responsiva e preparada para receber as fotos finais.</p>
+      <p data-lang="en">Clean, responsive base ready for the final photos.</p>
+      <p>© Jonathan Ribeiro</p>
+    </footer>
   </div>
-
-  <script>
-    const languageButtons = document.querySelectorAll('.lang-switch button');
-    const htmlElement = document.documentElement;
-
-    function setLanguage(language) {
-      const isPortuguese = language === 'pt';
-
-      htmlElement.lang = isPortuguese ? 'pt-BR' : 'en';
-
-      document.querySelectorAll('[data-lang]').forEach((node) => {
-        node.classList.toggle('is-active', node.getAttribute('data-lang') === language);
-      });
-
-      languageButtons.forEach((button) => {
-        const isActive = button.id === `btn-${language}`;
-        button.classList.toggle('is-active', isActive);
-        button.setAttribute('aria-pressed', String(isActive));
-      });
-    }
-
-    languageButtons.forEach((button) => {
-      button.addEventListener('click', () => setLanguage(button.id === 'btn-pt' ? 'pt' : 'en'));
-    });
-
-    setLanguage('pt');
-  </script>
 </body>
 </html>
