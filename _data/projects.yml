@@ -1,0 +1,17 @@
+# Add confirmed projects to `items` using: slug, period, url, status.pt,
+# status.en, title.pt, title.en, summary.pt, summary.en, tags, and collaborators.
+items: []
+
+empty:
+  pt:
+    title: "Projetos em preparação"
+    description: "Os projetos serão publicados aqui quando houver descrições, vínculos e etapas que possam ser apresentados com precisão."
+    note: "Enquanto isso, os repositórios públicos mostram parte das ferramentas em desenvolvimento."
+    action_label: "Ver código e dados"
+    action_url: "/recursos/"
+  en:
+    title: "Projects being prepared"
+    description: "Projects will appear here once their descriptions, connections, and stages can be presented accurately."
+    note: "In the meantime, the public repositories show some of the tools under development."
+    action_label: "Browse code and data"
+    action_url: "/en/resources/"

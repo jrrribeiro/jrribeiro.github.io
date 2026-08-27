@@ -1,0 +1,22 @@
+name: "Jonathan Ribeiro"
+monogram: "JR"
+location:
+  pt: "Recife, PE, Brasil"
+  en: "Recife, Pernambuco, Brazil"
+location_short:
+  pt: "Recife, PE"
+  en: "Recife, Brazil"
+role:
+  pt: "Pesquisador"
+  en: "Researcher"
+description:
+  pt: "Pesquisa sobre aves na interface entre monitoramento acústico passivo, ecologia, conservação, bioacústica e desenvolvimento de ferramentas em R e Python."
+  en: "Bird research across passive acoustic monitoring, ecology, conservation, bioacoustics, and the development of tools in R and Python."
+github: "https://github.com/jrrribeiro"
+email: ""
+orcid: ""
+scholar: ""
+google_scholar: ""
+lattes: ""
+cv: ""
+image: ""

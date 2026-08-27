@@ -1,0 +1,28 @@
+<!doctype html>
+{% assign raw_lang = page.lang | default: site.lang | default: 'pt' %}
+{% if raw_lang == 'en' or raw_lang == 'en-US' or raw_lang == 'en-GB' %}
+  {% assign document_lang = 'en' %}
+  {% assign skip_label = 'Skip to main content' %}
+{% else %}
+  {% assign document_lang = 'pt-BR' %}
+  {% assign skip_label = 'Pular para o conteúdo principal' %}
+{% endif %}
+<html lang="{{ document_lang }}">
+  <head>
+    {% include head.html %}
+  </head>
+  <body class="site-body{% if page.body_class %} {{ page.body_class | escape }}{% endif %}" data-page-language="{{ document_lang }}">
+    <a class="skip-link" href="#main-content">{{ skip_label }}</a>
+
+    {% include header.html %}
+
+    <main id="main-content" class="site-main" tabindex="-1">
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+  </body>
+</html>
+

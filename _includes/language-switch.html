@@ -1,0 +1,26 @@
+{% assign raw_lang = page.lang | default: site.lang | default: 'pt' %}
+{% if raw_lang == 'en' or raw_lang == 'en-US' or raw_lang == 'en-GB' %}
+  {% assign lang_key = 'en' %}
+  {% assign switch_label = 'Language' %}
+  {% assign alternate_path = page.translation_url | default: '/' %}
+{% else %}
+  {% assign lang_key = 'pt' %}
+  {% assign switch_label = 'Idioma' %}
+  {% assign alternate_path = page.translation_url | default: '/en/' %}
+{% endif %}
+{% assign alternate_href = alternate_path | relative_url %}
+{% assign current_href = page.url | default: '/' | relative_url %}
+
+<div class="language-switch" role="group" aria-label="{{ switch_label }}" data-language-switch>
+  {% if lang_key == 'pt' %}
+    <a class="language-switch__current is-active" href="{{ current_href }}" lang="pt-BR" hreflang="pt-BR" aria-current="true" aria-label="Versão atual em português">PT</a>
+  {% else %}
+    <a class="language-switch__link" href="{{ alternate_href }}" lang="pt-BR" hreflang="pt-BR" aria-label="Versão em português">PT</a>
+  {% endif %}
+  <span class="language-switch__separator" aria-hidden="true">/</span>
+  {% if lang_key == 'en' %}
+    <a class="language-switch__current is-active" href="{{ current_href }}" lang="en" hreflang="en" aria-current="true" aria-label="Current English version">EN</a>
+  {% else %}
+    <a class="language-switch__link" href="{{ alternate_href }}" lang="en" hreflang="en" aria-label="English version">EN</a>
+  {% endif %}
+</div>

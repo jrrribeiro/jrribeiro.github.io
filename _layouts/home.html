@@ -1,0 +1,67 @@
+---
+layout: default
+---
+{% assign hero_title = page.hero_title | default: page.title %}
+{% assign hero_intro = page.hero_intro | default: page.description %}
+{% if page.lang == 'en' %}
+  {% assign field_label = 'FIELD 01' %}
+{% else %}
+  {% assign field_label = 'CAMPO 01' %}
+{% endif %}
+<section class="home-hero" aria-labelledby="home-hero-title">
+  <div class="home-hero__copy home-hero-copy">
+    {% if page.eyebrow %}
+      <p class="eyebrow">{{ page.eyebrow }}</p>
+    {% endif %}
+    <h1 id="home-hero-title">{{ hero_title }}</h1>
+    {% if hero_intro %}
+      <p class="home-hero__intro hero-summary">{{ hero_intro }}</p>
+    {% endif %}
+
+    {% if page.primary_cta or page.secondary_cta %}
+      <div class="home-hero__actions hero-actions">
+        {% if page.primary_cta.label and page.primary_cta.url %}
+          {% if page.primary_cta.url contains '://' %}
+            {% assign primary_href = page.primary_cta.url %}
+          {% else %}
+            {% assign primary_href = page.primary_cta.url | relative_url %}
+          {% endif %}
+          <a class="button button-primary" href="{{ primary_href }}">{{ page.primary_cta.label }}</a>
+        {% endif %}
+        {% if page.secondary_cta.label and page.secondary_cta.url %}
+          {% if page.secondary_cta.url contains '://' %}
+            {% assign secondary_href = page.secondary_cta.url %}
+          {% else %}
+            {% assign secondary_href = page.secondary_cta.url | relative_url %}
+          {% endif %}
+          <a class="button button-secondary" href="{{ secondary_href }}">{{ page.secondary_cta.label }}</a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+
+  <figure class="home-hero__visual hero-visual" aria-hidden="true">
+    <svg viewBox="0 0 640 420" width="640" height="420" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="currentColor" stroke-opacity="0.16" stroke-width="1">
+        <path d="M48 52H600M48 118H600M48 184H600M48 250H600M48 316H600M48 382H600" />
+        <path d="M72 30V390M160 30V390M248 30V390M336 30V390M424 30V390M512 30V390M600 30V390" />
+      </g>
+      <g fill="none" stroke="currentColor" stroke-linecap="round">
+        <path d="M58 278C88 277 92 244 117 244s31 76 54 76c28 0 31-173 63-173 29 0 33 108 60 108 25 0 32-45 56-45 30 0 28 88 60 88 29 0 34-145 63-145 30 0 31 94 60 94 23 0 30-34 52-34 17 0 25 20 42 20" stroke-width="4" stroke-opacity="0.9" />
+        <path d="M58 302C94 302 95 286 126 286s32 38 61 38c35 0 34-86 67-86 29 0 34 59 63 59 31 0 35-23 65-23 29 0 32 45 62 45 34 0 36-74 72-74 30 0 33 42 61 42 24 0 33-12 60-12" stroke-width="2" stroke-opacity="0.46" />
+      </g>
+      <g fill="currentColor" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" letter-spacing="2">
+        <text x="48" y="24" opacity="0.76">{{ field_label }}</text>
+        <text x="506" y="24" opacity="0.76">05:42</text>
+        <text x="12" y="58" opacity="0.54">24</text>
+        <text x="12" y="190" opacity="0.54">12</text>
+        <text x="18" y="386" opacity="0.54">0</text>
+        <text x="14" y="214" opacity="0.72" transform="rotate(-90 14 214)">kHz</text>
+      </g>
+    </svg>
+  </figure>
+</section>
+
+<div class="home-page">
+  {{ content }}
+</div>

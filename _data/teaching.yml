@@ -1,0 +1,13 @@
+# Add verified activities to `items` using: id, year, institution, url, kind.pt,
+# kind.en, title.pt, title.en, summary.pt, summary.en, and materials.
+items: []
+
+empty:
+  pt:
+    title: "Atividades em organização"
+    description: "Disciplinas, minicursos, palestras e materiais de apoio serão reunidos aqui depois da conferência de títulos, datas e vínculos."
+    note: "Os registros serão apresentados com contexto, datas e materiais relacionados."
+  en:
+    title: "Activities being organized"
+    description: "Courses, workshops, talks, and supporting materials will be collected here after their titles, dates, and affiliations have been checked."
+    note: "Records will be presented with context, dates, and related materials."

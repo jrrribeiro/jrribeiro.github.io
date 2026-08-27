@@ -1,0 +1,47 @@
+repositories:
+  - slug: "birdnet-validator-app"
+    name: "BirdNET-Validator-App"
+    url: "https://github.com/jrrribeiro/BirdNET-Validator-App"
+    type:
+      pt: "Aplicativo de validação"
+      en: "Validation application"
+    description:
+      pt: "Aplicativo colaborativo para revisar segmentos de áudio detectados pelo BirdNET, com validação por equipes, acompanhamento de progresso e exportações para fluxos científicos."
+      en: "A collaborative application for reviewing BirdNET-detected audio segments, with team validation, progress tracking, and exports for scientific workflows."
+    tags:
+      - pt: "Python"
+        en: "Python"
+      - pt: "BirdNET"
+        en: "BirdNET"
+      - pt: "Hugging Face"
+        en: "Hugging Face"
+    featured: true
+
+  - slug: "hf-dataset-uploader"
+    name: "HF_Dataset_Uploader"
+    url: "https://github.com/jrrribeiro/HF_Dataset_Uploader"
+    type:
+      pt: "Pipeline de dados"
+      en: "Data pipeline"
+    description:
+      pt: "Ferramenta para enviar grandes volumes de segmentos de áudio e metadados de detecções do BirdNET a conjuntos de dados hospedados no Hugging Face, preparando-os para validação colaborativa."
+      en: "A tool for uploading large volumes of BirdNET audio segments and detection metadata to Hugging Face datasets, preparing them for collaborative validation."
+    tags:
+      - pt: "Python"
+        en: "Python"
+      - pt: "Dados acústicos"
+        en: "Acoustic data"
+      - pt: "Hugging Face"
+        en: "Hugging Face"
+    featured: true
+
+packages: []
+datasets: []
+
+empty:
+  packages:
+    pt: "Nenhum pacote foi listado ainda."
+    en: "No packages have been listed yet."
+  datasets:
+    pt: "Nenhuma base de dados foi listada ainda."
+    en: "No datasets have been listed yet."

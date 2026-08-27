@@ -1,0 +1,46 @@
+{% assign raw_lang = page.lang | default: site.lang | default: 'pt' %}
+{% if raw_lang == 'en' or raw_lang == 'en-US' or raw_lang == 'en-GB' %}
+  {% assign lang_key = 'en' %}
+  {% assign navigation_label = 'Main navigation' %}
+{% else %}
+  {% assign lang_key = 'pt' %}
+  {% assign navigation_label = 'Navegação principal' %}
+{% endif %}
+{% assign current_path = page.url | default: '/' | relative_url %}
+
+<nav id="primary-navigation" class="site-nav primary-nav" aria-label="{{ navigation_label }}" data-site-nav>
+  <ul class="site-nav__list nav-list">
+    {% for item in site.data.navigation %}
+      {% assign localized_item = item[lang_key] %}
+      {% if localized_item.label and localized_item.url %}
+        {% assign item_path = localized_item.url | relative_url %}
+        {% assign is_current = false %}
+        {% if page.nav_key == item.key or current_path == item_path %}
+          {% assign is_current = true %}
+        {% endif %}
+        <li class="site-nav__item">
+          <a class="site-nav__link nav-link{% if is_current %} is-current is-active{% endif %}"
+             href="{{ item_path }}"
+             {% if is_current %}aria-current="page"{% endif %}>
+            {{ localized_item.label }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    {% assign contact_item = site.data.site.contact_cta[lang_key] %}
+    {% if contact_item.label and contact_item.url %}
+      {% assign contact_path = contact_item.url | relative_url %}
+      {% assign contact_is_current = false %}
+      {% if page.nav_key == 'contact' or current_path == contact_path %}
+        {% assign contact_is_current = true %}
+      {% endif %}
+      <li class="site-nav__item site-nav__item--contact">
+        <a class="site-nav__link nav-link nav-link--contact site-header__contact{% if contact_is_current %} is-current is-active{% endif %}"
+           href="{{ contact_path }}"
+           {% if contact_is_current %}aria-current="page"{% endif %}>
+          {{ contact_item.label }}
+        </a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>

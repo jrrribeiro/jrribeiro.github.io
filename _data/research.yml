@@ -1,0 +1,58 @@
+intro:
+  pt: "Os interesses de pesquisa se encontram no uso do som e de dados ecológicos para formular perguntas sobre aves, populações, comunidades e conservação."
+  en: "My research uses sound and ecological data to investigate questions about birds, populations, communities, and conservation."
+
+themes:
+  - key: passive-acoustic-monitoring
+    title:
+      pt: "Monitoramento acústico passivo"
+      en: "Passive acoustic monitoring"
+    description:
+      pt: "Uso de registros sonoros como uma via não invasiva para inferir ocorrência acústica e padrões de atividade vocal ao longo do tempo."
+      en: "Using sound recordings as a non-invasive way to infer acoustic occurrence and patterns of vocal activity through time."
+    marker: "01"
+
+  - key: community-population-ecology
+    title:
+      pt: "Ecologia de comunidades e populações"
+      en: "Community and population ecology"
+    description:
+      pt: "Perguntas sobre composição, abundância, dinâmica e respostas das aves às variações ambientais."
+      en: "Questions about composition, abundance, dynamics, and how birds respond to environmental variation."
+    marker: "02"
+
+  - key: conservation
+    title:
+      pt: "Conservação"
+      en: "Conservation"
+    description:
+      pt: "Conexões entre evidências ecológicas e decisões voltadas à conservação das aves e dos ambientes que ocupam."
+      en: "Connecting ecological evidence with decisions that support the conservation of birds and their habitats."
+    marker: "03"
+
+  - key: bird-bioacoustics
+    title:
+      pt: "Bioacústica de aves"
+      en: "Bird bioacoustics"
+    description:
+      pt: "O som como objeto de estudo e como fonte de informação para investigar padrões ecológicos."
+      en: "Sound as both a subject of study and a source of information for investigating ecological patterns."
+    marker: "04"
+
+workflow:
+  pt:
+    title: "Do registro à pergunta ecológica"
+    description: "O trabalho aproxima escuta, organização de dados e análise reprodutível. R e Python entram como ferramentas para transformar rotinas de pesquisa em fluxos claros e reutilizáveis."
+    steps:
+      - "Escutar"
+      - "Organizar"
+      - "Analisar"
+      - "Compartilhar"
+  en:
+    title: "From recordings to ecological questions"
+    description: "The work brings listening, data organization, and reproducible analysis together. R and Python support clear, reusable research workflows."
+    steps:
+      - "Listen"
+      - "Organize"
+      - "Analyze"
+      - "Share"
