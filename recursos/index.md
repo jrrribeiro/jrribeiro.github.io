@@ -47,11 +47,11 @@ permalink: /recursos/
   <div class="empty-grid">
     <div class="empty-state compact">
       <span class="empty-state-mark" aria-hidden="true">○</span>
-      <div><h3>Pacotes</h3><p>{{ site.data.resources.empty.packages[locale] }}</p></div>
+      <div><h3>Pacotes</h3><p>{{ site.data.resources['empty'].packages[locale] }}</p></div>
     </div>
     <div class="empty-state compact">
       <span class="empty-state-mark" aria-hidden="true">○</span>
-      <div><h3>Bases de dados</h3><p>{{ site.data.resources.empty.datasets[locale] }}</p></div>
+      <div><h3>Bases de dados</h3><p>{{ site.data.resources['empty'].datasets[locale] }}</p></div>
     </div>
   </div>
   <p class="section-action"><a class="text-link" href="{{ site.data.profile.github }}">Ver todos os repositórios no GitHub <span aria-hidden="true">↗</span></a></p>

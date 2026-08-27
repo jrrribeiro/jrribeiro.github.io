@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/" />
+          
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/" />
+        
+        
+        
+        
+  </url>
+      
+    
+  
+    
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/contato/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/contato/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/contact/" />
+          
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/contato/" />
+        
+        
+        
+        
+  </url>
+      
+    
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/en/about/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/about/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/sobre/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/sobre/" />
+          
+        
+        
+        
+        
+  </url>
+      
+    
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/en/contact/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/contact/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/contato/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/contato/" />
+          
+        
+        
+        
+        
+  </url>
+      
+    
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/en/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/" />
+          
+        
+        
+        
+        
+  </url>
+      
+    
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/en/projects/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/projects/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/projetos/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/projetos/" />
+          
+        
+        
+        
+        
+  </url>
+      
+    
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/en/publications/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/publications/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/publicacoes/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/publicacoes/" />
+          
+        
+        
+        
+        
+  </url>
+      
+    
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/en/research/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/research/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/pesquisa/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/pesquisa/" />
+          
+        
+        
+        
+        
+  </url>
+      
+    
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/en/resources/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/resources/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/recursos/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/recursos/" />
+          
+        
+        
+        
+        
+  </url>
+      
+    
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/en/teaching/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/teaching/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/ensino/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/ensino/" />
+          
+        
+        
+        
+        
+  </url>
+      
+    
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/ensino/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/ensino/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/teaching/" />
+          
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/ensino/" />
+        
+        
+        
+        
+  </url>
+      
+    
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/pesquisa/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/pesquisa/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/research/" />
+          
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/pesquisa/" />
+        
+        
+        
+        
+  </url>
+      
+    
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/projetos/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/projetos/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/projects/" />
+          
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/projetos/" />
+        
+        
+        
+        
+  </url>
+      
+    
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/publicacoes/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/publicacoes/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/publications/" />
+          
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/publicacoes/" />
+        
+        
+        
+        
+  </url>
+      
+    
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/recursos/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/recursos/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/resources/" />
+          
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/recursos/" />
+        
+        
+        
+        
+  </url>
+      
+    
+  
+    
+      
+        
+        
+        
+  <url>
+    <loc>http://localhost:4000/sobre/</loc>
+        
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/sobre/" />
+          
+            
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4000/en/about/" />
+          
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost:4000/sobre/" />
+        
+        
+        
+        
+  </url>
+      
+    
+  
+</urlset>

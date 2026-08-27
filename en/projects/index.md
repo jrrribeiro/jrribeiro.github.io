@@ -11,7 +11,7 @@ permalink: /en/projects/
 ---
 {% assign locale = page.lang %}
 {% assign projects = site.data.projects.items %}
-{% assign empty = site.data.projects.empty[locale] %}
+{% assign empty_state = site.data.projects['empty'][locale] %}
 
 <section class="section content-section" aria-labelledby="project-list">
   <div class="section-head">
@@ -37,10 +37,10 @@ permalink: /en/projects/
     <div class="empty-state">
       <span class="empty-state-mark" aria-hidden="true">○</span>
       <div>
-        <h3>{{ empty.title }}</h3>
-        <p>{{ empty.description }}</p>
-        <p class="muted">{{ empty.note }}</p>
-        <a class="text-link" href="{{ empty.action_url | relative_url }}">{{ empty.action_label }} <span aria-hidden="true">→</span></a>
+        <h3>{{ empty_state.title }}</h3>
+        <p>{{ empty_state.description }}</p>
+        <p class="muted">{{ empty_state.note }}</p>
+        <a class="text-link" href="{{ empty_state.action_url | relative_url }}">{{ empty_state.action_label }} <span aria-hidden="true">→</span></a>
       </div>
     </div>
   {% endif %}

@@ -11,7 +11,7 @@ permalink: /ensino/
 ---
 {% assign locale = page.lang %}
 {% assign activities = site.data.teaching.items %}
-{% assign empty = site.data.teaching.empty[locale] %}
+{% assign empty_state = site.data.teaching['empty'][locale] %}
 
 <section class="section content-section" aria-labelledby="atividades-academicas">
   <div class="section-head">
@@ -37,9 +37,9 @@ permalink: /ensino/
     <div class="empty-state">
       <span class="empty-state-mark" aria-hidden="true">○</span>
       <div>
-        <h3>{{ empty.title }}</h3>
-        <p>{{ empty.description }}</p>
-        <p class="muted">{{ empty.note }}</p>
+        <h3>{{ empty_state.title }}</h3>
+        <p>{{ empty_state.description }}</p>
+        <p class="muted">{{ empty_state.note }}</p>
       </div>
     </div>
   {% endif %}

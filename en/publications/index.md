@@ -11,7 +11,7 @@ permalink: /en/publications/
 ---
 {% assign locale = page.lang %}
 {% assign publications = site.data.publications.items %}
-{% assign empty = site.data.publications.empty[locale] %}
+{% assign empty_state = site.data.publications['empty'][locale] %}
 
 <section class="section content-section" aria-labelledby="bibliography">
   <div class="section-head">
@@ -38,9 +38,9 @@ permalink: /en/publications/
     <div class="empty-state">
       <span class="empty-state-mark" aria-hidden="true">○</span>
       <div>
-        <h3>{{ empty.title }}</h3>
-        <p>{{ empty.description }}</p>
-        <p class="muted">{{ empty.note }}</p>
+        <h3>{{ empty_state.title }}</h3>
+        <p>{{ empty_state.description }}</p>
+        <p class="muted">{{ empty_state.note }}</p>
       </div>
     </div>
   {% endif %}
