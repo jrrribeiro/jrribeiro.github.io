@@ -39,4 +39,8 @@ sitemap: false
       {% endif %}
     {% endunless %}
   {% endfor %}
+  <url>
+    <loc>{{ '/conectaves/' | absolute_url | xml_escape }}</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="{{ '/conectaves/' | absolute_url | xml_escape }}" />
+  </url>
 </urlset>

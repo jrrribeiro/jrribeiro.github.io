@@ -357,4 +357,8 @@
       
     
   
+  <url>
+    <loc>http://localhost:4000/conectaves/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:4000/conectaves/" />
+  </url>
 </urlset>

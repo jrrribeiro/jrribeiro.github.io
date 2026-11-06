@@ -132,6 +132,7 @@ def build(destination: Path) -> None:
         shutil.rmtree(destination)
     destination.mkdir(parents=True)
     shutil.copytree(ROOT / "assets", destination / "assets")
+    shutil.copytree(ROOT / "conectaves", destination / "conectaves")
 
     def render(source: str, page: dict[str, Any], content: str = "") -> str:
         source = normalize_jekyll_liquid(source)
