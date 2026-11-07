@@ -1,10 +1,4 @@
----
-layout: null
-permalink: /robots.txt
-sitemap: false
----
 User-agent: *
 Allow: /
 
-Sitemap: {{ '/sitemap.xml' | absolute_url }}
-
+Sitemap: https://jrrribeiro.github.io/jrribeiro.github.io/sitemap.xml

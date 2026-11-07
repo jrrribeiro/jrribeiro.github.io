@@ -1,43 +1,13 @@
-title: Jonathan Ribeiro
-description: >-
-  Pesquisador em monitoramento acústico passivo, ecologia, conservação e
-  bioacústica de aves.
+title: ConectAves
+description: Laboratório de Ecologia Integrativa e Tecnologia para Conservação de Aves.
 lang: pt-BR
 url: "https://jrrribeiro.github.io"
 baseurl: "/jrribeiro.github.io"
-repository: jrrribeiro/jrribeiro.github.io
 timezone: America/Sao_Paulo
-default_image: /assets/images/og-card.png
-default_image_en: /assets/images/og-card-en.png
-default_image_alt: "Cartão de Jonathan Ribeiro com uma onda acústica em composição de caderno de campo."
-default_image_alt_en: "Jonathan Ribeiro sharing card with an acoustic wave in a field-notebook composition."
-
 permalink: pretty
 markdown: kramdown
-highlighter: rouge
-kramdown:
-  input: GFM
-  hard_wrap: false
-
-# The site intentionally uses only features supported by GitHub Pages. No
-# third-party Jekyll plugin is required to build or publish it.
 plugins: []
-
-defaults:
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: page
-      lang: pt
-  - scope:
-      path: en
-      type: pages
-    values:
-      lang: en
-
 exclude:
-  - Gemfile
-  - Gemfile.lock
   - README.md
-  - vendor
+  - scripts
+  - .preview

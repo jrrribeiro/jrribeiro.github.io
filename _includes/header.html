@@ -1,52 +1,16 @@
-{% assign raw_lang = page.lang | default: site.lang | default: 'pt' %}
-{% if raw_lang == 'en' or raw_lang == 'en-US' or raw_lang == 'en-GB' %}
-  {% assign lang_key = 'en' %}
-  {% assign home_path = '/en/' %}
-  {% assign home_label = 'Home' %}
-  {% assign menu_label = 'Menu' %}
-{% else %}
-  {% assign lang_key = 'pt' %}
-  {% assign home_path = '/' %}
-  {% assign home_label = 'Página inicial' %}
-  {% assign menu_label = 'Menu' %}
-{% endif %}
-{% assign profile = site.data.profile | default: site.data.site.profile | default: site.data.site %}
-{% assign profile_name = profile.name | default: site.title | default: 'Jonathan Ribeiro' %}
-{% assign brand_mark = profile.monogram | default: 'JR' %}
-
-<header class="site-header" data-site-header>
-  <div class="site-header__inner header-shell">
-    <a class="site-brand brand" href="{{ home_path | relative_url }}" aria-label="{{ profile_name | escape }} — {{ home_label }}">
-      <span class="site-brand__mark brand-mark" aria-hidden="true">{{ brand_mark }}</span>
-      <span class="site-brand__name">{{ profile_name }}</span>
-    </a>
-
-    <div class="site-header__actions site-actions">
-      {% include language-switch.html %}
-
-      {% if profile.cv and profile.cv != empty %}
-        {% if profile.cv contains '://' %}
-          {% assign cv_href = profile.cv %}
-        {% else %}
-          {% assign cv_href = profile.cv | relative_url %}
-        {% endif %}
-        <a class="site-header__cv" href="{{ cv_href }}">CV</a>
-      {% endif %}
-
-      <button class="menu-toggle"
-              type="button"
-              aria-controls="primary-navigation"
-              aria-expanded="false"
-              aria-label="{{ menu_label }}"
-              data-menu-toggle
-              hidden>
-        <span class="menu-toggle__label visually-hidden">{{ menu_label }}</span>
-        <span class="menu-toggle-icon" aria-hidden="true"></span>
-      </button>
-    </div>
-
-    <div class="site-header__navigation">
-      {% include navigation.html %}
-    </div>
+<header class="site-header">
+  <div class="header-inner container">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="ConectAves — página inicial">Conect<span>Aves</span><i aria-hidden="true"></i></a>
+    <button class="menu-button" type="button" aria-label="Abrir menu" aria-controls="nav-principal" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" id="nav-principal" aria-label="Navegação principal">
+      <a href="{{ '/' | relative_url }}" {% if page.nav_key == 'home' %}aria-current="page"{% endif %}>Início</a>
+      <a href="{{ '/sobre/' | relative_url }}" {% if page.nav_key == 'about' %}aria-current="page"{% endif %}>Laboratório</a>
+      <a href="{{ '/pesquisa/' | relative_url }}" {% if page.nav_key == 'research' %}aria-current="page"{% endif %}>Pesquisa</a>
+      <a href="{{ '/projetos/' | relative_url }}" {% if page.nav_key == 'projects' %}aria-current="page"{% endif %}>Projetos</a>
+      <a href="{{ '/publicacoes/' | relative_url }}" {% if page.nav_key == 'publications' %}aria-current="page"{% endif %}>Publicações</a>
+      <a class="nav-contact" href="{{ '/contato/' | relative_url }}" {% if page.nav_key == 'contact' %}aria-current="page"{% endif %}>Contato <span aria-hidden="true">↗</span></a>
+    </nav>
   </div>
 </header>

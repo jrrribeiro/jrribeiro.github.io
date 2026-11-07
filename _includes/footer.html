@@ -1,94 +1,13 @@
-{% assign raw_lang = page.lang | default: site.lang | default: 'pt' %}
-{% if raw_lang == 'en' or raw_lang == 'en-US' or raw_lang == 'en-GB' %}
-  {% assign lang_key = 'en' %}
-  {% assign links_label = 'Professional profiles and contact' %}
-  {% assign email_label = 'Email' %}
-  {% assign scholar_label = 'Google Scholar' %}
-  {% assign cv_label = 'Curriculum vitae' %}
-  {% assign copyright_label = 'Copyright' %}
-{% else %}
-  {% assign lang_key = 'pt' %}
-  {% assign links_label = 'Perfis profissionais e contato' %}
-  {% assign email_label = 'E-mail' %}
-  {% assign scholar_label = 'Google Acadêmico' %}
-  {% assign cv_label = 'Currículo' %}
-  {% assign copyright_label = 'Direitos autorais' %}
-{% endif %}
-{% assign profile = site.data.profile | default: site.data.site.profile | default: site.data.site %}
-{% assign profile_name = profile.name | default: site.title | default: 'Jonathan Ribeiro' %}
-{% assign profile_location = profile.location %}
-{% if profile_location.pt or profile_location.en %}
-  {% assign localized_location = profile_location[lang_key] %}
-{% else %}
-  {% assign localized_location = profile_location %}
-{% endif %}
-{% assign footer_copy = site.data.site.footer[lang_key] %}
-{% assign footer_scholar = profile.google_scholar | default: profile.scholar %}
-{% assign has_profile_links = false %}
-{% if profile.email and profile.email != empty %}{% assign has_profile_links = true %}{% endif %}
-{% if profile.github and profile.github != empty %}{% assign has_profile_links = true %}{% endif %}
-{% if profile.orcid and profile.orcid != empty %}{% assign has_profile_links = true %}{% endif %}
-{% if profile.lattes and profile.lattes != empty %}{% assign has_profile_links = true %}{% endif %}
-{% if footer_scholar and footer_scholar != empty %}{% assign has_profile_links = true %}{% endif %}
-{% if profile.cv and profile.cv != empty %}{% assign has_profile_links = true %}{% endif %}
-
 <footer class="site-footer">
-  <div class="site-footer__inner footer-shell">
-    <div class="site-footer__identity">
-      <p class="site-footer__name footer-brand">{{ profile_name }}</p>
-      {% if footer_copy and footer_copy != empty %}
-        <p>{{ footer_copy }}</p>
-      {% endif %}
-      {% if localized_location and localized_location != empty %}
-        <p class="site-footer__location">{{ localized_location }}</p>
-      {% endif %}
+  <div class="container footer-inner">
+    <div>
+      <a class="footer-brand" href="{{ '/' | relative_url }}">Conect<span>Aves</span><i aria-hidden="true"></i></a>
+      <p>Laboratório de Ecologia Integrativa e Tecnologia para Conservação de Aves</p>
+      <p>Iniciativa de pesquisa independente · Recife, PE</p>
     </div>
-
-    {% if has_profile_links %}
-      <nav class="site-footer__links" aria-label="{{ links_label }}">
-        <ul class="footer-links">
-          {% if profile.email and profile.email != empty %}
-            <li><a href="mailto:{{ profile.email | escape }}">{{ email_label }}</a></li>
-          {% endif %}
-          {% if profile.github and profile.github != empty %}
-            {% if profile.github contains '://' %}
-              {% assign github_href = profile.github %}
-            {% else %}
-              {% assign github_href = profile.github | prepend: 'https://github.com/' %}
-            {% endif %}
-            <li><a href="{{ github_href }}" rel="me">GitHub</a></li>
-          {% endif %}
-          {% if profile.orcid and profile.orcid != empty %}
-            {% if profile.orcid contains '://' %}
-              {% assign orcid_href = profile.orcid %}
-            {% else %}
-              {% assign orcid_href = profile.orcid | prepend: 'https://orcid.org/' %}
-            {% endif %}
-            <li><a href="{{ orcid_href }}" rel="me">ORCID</a></li>
-          {% endif %}
-          {% if profile.lattes and profile.lattes != empty %}
-            <li><a href="{{ profile.lattes }}" rel="me">Lattes</a></li>
-          {% endif %}
-          {% if footer_scholar and footer_scholar != empty %}
-            <li><a href="{{ footer_scholar }}" rel="me">{{ scholar_label }}</a></li>
-          {% endif %}
-          {% if profile.cv and profile.cv != empty %}
-            {% if profile.cv contains '://' %}
-              {% assign footer_cv_href = profile.cv %}
-            {% else %}
-              {% assign footer_cv_href = profile.cv | relative_url %}
-            {% endif %}
-            <li><a href="{{ footer_cv_href }}">{{ cv_label }}</a></li>
-          {% endif %}
-        </ul>
-      </nav>
-    {% endif %}
-
-    <p class="site-footer__copyright footer-meta">
-      <span class="visually-hidden">{{ copyright_label }}</span>
-      <span aria-hidden="true">©</span>
-      <span data-current-year>{{ site.time | date: '%Y' }}</span>
-      {{ profile_name }}
-    </p>
+    <div class="footer-right">
+      <a href="{{ '/contato/' | relative_url }}">Contato ↗</a>
+      <small>© <span id="year">{{ site.time | date: '%Y' }}</span> ConectAves</small>
+    </div>
   </div>
 </footer>

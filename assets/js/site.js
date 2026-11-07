@@ -1,3 +1,4 @@
+document.documentElement.classList.add('js-enabled');
 const menuButton = document.querySelector('.menu-button');
 const navigation = document.querySelector('.main-nav');
 

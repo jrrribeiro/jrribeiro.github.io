@@ -65,10 +65,17 @@ def build(destination: Path) -> None:
     config["baseurl"] = ""
     config["url"] = "http://localhost:4000"
     config["time"] = datetime.now(timezone.utc)
-    config["data"] = load_data()
+    config["data"] = {}
 
-    source_paths = [ROOT / "index.md", ROOT / "404.html"]
-    source_paths.extend(sorted(path for path in ROOT.glob("**/index.md") if path != ROOT / "index.md"))
+    source_paths = [ROOT / "index.html", ROOT / "404.html"]
+    excluded_roots = {".git", ".preview", "_includes", "_layouts", "assets", "scripts"}
+    source_paths.extend(
+        sorted(
+            path for path in ROOT.rglob("index.html")
+            if path != ROOT / "index.html"
+            and path.relative_to(ROOT).parts[0] not in excluded_roots
+        )
+    )
     source_paths.extend([ROOT / "robots.txt", ROOT / "sitemap.xml"])
 
     documents: list[tuple[Path, dict[str, Any], str]] = []
@@ -78,7 +85,7 @@ def build(destination: Path) -> None:
         permalink = metadata.get("permalink")
         if not permalink:
             relative = path.relative_to(ROOT).as_posix()
-            permalink = "/" + relative.replace("index.md", "").replace(".md", ".html")
+            permalink = "/" + relative.replace("index.html", "")
         metadata["url"] = permalink
         metadata["path"] = path.relative_to(ROOT).as_posix()
         documents.append((path, metadata, body))
@@ -128,11 +135,12 @@ def build(destination: Path) -> None:
     environment.add_filter("date_to_xmlschema", date_to_xmlschema)
     environment.add_filter("xml_escape", lambda value: html.escape(str(value or ""), quote=True))
 
+    if destination == ROOT or not destination.is_relative_to(ROOT):
+        raise ValueError("Preview destination must be a subdirectory of the repository")
     if destination.exists():
         shutil.rmtree(destination)
     destination.mkdir(parents=True)
     shutil.copytree(ROOT / "assets", destination / "assets")
-    shutil.copytree(ROOT / "conectaves", destination / "conectaves")
 
     def render(source: str, page: dict[str, Any], content: str = "") -> str:
         source = normalize_jekyll_liquid(source)
@@ -152,7 +160,7 @@ def build(destination: Path) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--destination", type=Path, default=ROOT / "_site-preview")
+    parser.add_argument("--destination", type=Path, default=ROOT / ".preview")
     args = parser.parse_args()
     build(args.destination.resolve())
     print(f"Preview built at {args.destination.resolve()}")

@@ -1,19 +1,16 @@
-# jrribeiro.github.io
+# ConectAves
 
-Site pessoal de Jonathan Ribeiro com páginas isoladas e versão em português e inglês.
+Site do Laboratório de Ecologia Integrativa e Tecnologia para Conservação de Aves. O laboratório é uma iniciativa de pesquisa independente conduzida por Jonathan Ribeiro em Recife, PE.
 
-## Estrutura
+## Páginas
 
-- `index.html`: página inicial com apresentação geral e mapa do site.
-- `about.html`: trajetória e foco pessoal.
-- `research.html`: linhas de pesquisa.
-- `projects.html`: projetos em desenvolvimento.
-- `teaching.html`: ensino e atividades acadêmicas.
-- `publications.html`: publicações e outras produções.
-- `code.html`: scripts, pacotes e bases de dados.
-- `contact.html`: canais de contato.
+- `/`: apresentação
+- `/sobre/`: laboratório e pesquisador
+- `/pesquisa/`: áreas de atuação
+- `/projetos/`: índice para futuras páginas de projetos
+- `/publicacoes/`: índice para futuras publicações
+- `/contato/`: canais disponíveis
 
-## Arquivos compartilhados
+O site usa Jekyll sem plugins adicionais e é publicado pelo GitHub Pages a partir da branch principal. Cabeçalho e rodapé ficam em `_includes/`, a estrutura HTML em `_layouts/default.html`, e estilos e comportamento em `assets/`.
 
-- `assets/site.css`: estilo global do site.
-- `assets/site.js`: alternância de idioma e navegação ativa.
+Para gerar uma prévia local sem Ruby, execute `python scripts/build_preview.py` e sirva a pasta `.preview/` com um servidor HTTP. O script requer `PyYAML` e `python-liquid`.

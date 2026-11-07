@@ -1,46 +1,13 @@
 ---
 layout: null
 permalink: /sitemap.xml
-sitemap: false
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  {% assign sitemap_documents = site.pages %}
-  {% for document in sitemap_documents %}
-    {% unless document.sitemap == false %}
-      {% if document.url %}
-        {% assign document_url = document.url | absolute_url %}
-        {% assign document_lang = document.lang | default: site.lang | default: 'pt' %}
-        {% assign document_modified = document.last_modified_at | default: document.modified | default: document.date %}
-  <url>
-    <loc>{{ document_url | xml_escape }}</loc>
-        {% if document_lang == 'en' or document_lang == 'en-US' or document_lang == 'en-GB' %}
-    <xhtml:link rel="alternate" hreflang="en" href="{{ document_url | xml_escape }}" />
-          {% if document.translation_url %}
-            {% assign translated_url = document.translation_url | absolute_url %}
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="{{ translated_url | xml_escape }}" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="{{ translated_url | xml_escape }}" />
-          {% endif %}
-        {% else %}
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="{{ document_url | xml_escape }}" />
-          {% if document.translation_url %}
-            {% assign translated_url = document.translation_url | absolute_url %}
-    <xhtml:link rel="alternate" hreflang="en" href="{{ translated_url | xml_escape }}" />
-          {% endif %}
-    <xhtml:link rel="alternate" hreflang="x-default" href="{{ document_url | xml_escape }}" />
-        {% endif %}
-        {% if document_modified %}
-    <lastmod>{{ document_modified | date_to_xmlschema }}</lastmod>
-        {% endif %}
-        {% if document.changefreq %}<changefreq>{{ document.changefreq }}</changefreq>{% endif %}
-        {% if document.priority %}<priority>{{ document.priority }}</priority>{% endif %}
-  </url>
-      {% endif %}
-    {% endunless %}
-  {% endfor %}
-  <url>
-    <loc>{{ '/conectaves/' | absolute_url | xml_escape }}</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="{{ '/conectaves/' | absolute_url | xml_escape }}" />
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>{{ '/' | absolute_url }}</loc></url>
+  <url><loc>{{ '/sobre/' | absolute_url }}</loc></url>
+  <url><loc>{{ '/pesquisa/' | absolute_url }}</loc></url>
+  <url><loc>{{ '/projetos/' | absolute_url }}</loc></url>
+  <url><loc>{{ '/publicacoes/' | absolute_url }}</loc></url>
+  <url><loc>{{ '/contato/' | absolute_url }}</loc></url>
 </urlset>
