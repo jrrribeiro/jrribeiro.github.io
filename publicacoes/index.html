@@ -5,21 +5,21 @@ nav_key: publications
 permalink: /publicacoes/
 description: Artigos científicos de Jonathan Ribeiro, com referências completas, DOI e opções de acesso.
 ---
-<header class="page-hero"><div class="container page-hero-grid"><div><span class="kicker">Publicações / 04</span><h1>Conhecimento para <em>circular.</em></h1></div><p>Oito artigos publicados com participação de Jonathan Ribeiro. Consulte as referências e encontre as opções de acesso a cada trabalho.</p></div></header>
+<header class="page-hero publications-hero"><div class="container page-hero-grid"><div><span class="kicker">Publicações / 04</span><h1>Conhecimento para <em>circular.</em></h1></div></div></header>
 <section class="section publications-section"><div class="container">
-  <div class="publications-intro"><div><span class="kicker">Artigos científicos</span><h2>Da pesquisa ao conhecimento compartilhado.</h2></div><p>Referências organizadas por ano de publicação da revista. Os registros duplicados no ORCID foram reunidos.</p></div>
+  <div class="publications-intro"><span class="kicker">Artigos científicos</span></div>
   <div class="publication-list">
   {% for publication in site.data.publications %}
     <article class="publication-card" id="artigo-{{ publication.doi | replace: '/', '-' | replace: '.', '-' }}">
-      <div class="publication-meta"><span>{{ publication.year }}</span><span>{{ forloop.index }} / 08</span></div>
+      <div class="publication-meta"><span>{{ publication.year }}</span><span>0{{ forloop.rindex }}/0{{ forloop.rindex }}</span></div>
       <h3>{{ publication.title }}</h3>
-      <p class="publication-reference">{{ publication.reference }}</p>
+      <p class="publication-reference">{{ publication.reference | replace: 'RIBEIRO, Jonathan Ramos', '<strong>RIBEIRO, Jonathan Ramos</strong>' | replace: 'RIBEIRO, Jonathan R.', '<strong>RIBEIRO, Jonathan R.</strong>' }}</p>
       <div class="publication-links" aria-label="Acessar o artigo {{ publication.title | escape }}">
-        <a href="https://doi.org/{{ publication.doi }}" target="_blank" rel="noopener noreferrer">DOI oficial ↗</a>
-        <a href="{{ publication.researchgate }}" target="_blank" rel="noopener noreferrer">{% if publication.rg_search %}Buscar no ResearchGate{% else %}ResearchGate{% endif %} ↗</a>
-        {% if publication.pdf_local %}<a href="{{ publication.pdf_local | relative_url }}" type="application/pdf" target="_blank" rel="noopener noreferrer">Baixar PDF ↗</a>
-        {% elsif publication.pdf_external %}<a href="{{ publication.pdf_external }}" target="_blank" rel="noopener noreferrer">PDF na revista ↗</a>
-        {% else %}<a href="{{ '/contato/' | relative_url }}?artigo={{ publication.doi }}">Solicitar cópia →</a>{% endif %}
+        <a href="https://doi.org/{{ publication.doi }}" target="_blank" rel="noopener noreferrer">DOI oficial</a>
+        <a href="{{ publication.researchgate }}" target="_blank" rel="noopener noreferrer">ResearchGate</a>
+        {% if publication.pdf_local %}<a href="{{ publication.pdf_local | relative_url }}" type="application/pdf" target="_blank" rel="noopener noreferrer">Baixar PDF</a>
+        {% elsif publication.pdf_external %}<a href="{{ publication.pdf_external }}" target="_blank" rel="noopener noreferrer">PDF na revista</a>
+        {% else %}<a href="{{ '/contato/' | relative_url }}?artigo={{ publication.doi }}">Solicitar cópia</a>{% endif %}
       </div>
       {% if publication.license %}<small class="publication-license">{{ publication.license }}</small>{% endif %}
     </article>

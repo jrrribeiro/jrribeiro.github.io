@@ -22,14 +22,18 @@ document.querySelector('#year').textContent = new Date().getFullYear();
 const requestMessage = document.querySelector('#request-message');
 if (requestMessage) {
   const articleDoi = new URLSearchParams(window.location.search).get('artigo');
-  if (articleDoi && /^10\.\d{4,9}\/[\w.();/:+-]+$/i.test(articleDoi)) {
-    requestMessage.value = `Olá, Jonathan! Gostaria de solicitar uma cópia do artigo com DOI ${articleDoi}. Obrigado(a)!`;
+  const validArticleDoi = articleDoi && /^10\.\d{4,9}\/[\w.();/:+-]+$/i.test(articleDoi) ? articleDoi : null;
+  const articleEntry = validArticleDoi && [...document.querySelectorAll('[data-publication-doi]')]
+    .find(entry => entry.dataset.publicationDoi === validArticleDoi);
+  const articleTitle = articleEntry?.dataset.publicationTitle;
+  if (articleTitle) {
+    requestMessage.value = `Olá, Jonathan! Gostaria de solicitar uma cópia do artigo “${articleTitle}” (DOI: ${validArticleDoi}). Obrigado(a)!`;
     document.querySelector('#solicitar-copia').scrollIntoView({ block: 'start' });
   }
 
   const emailLink = document.querySelector('#request-email');
   const updateEmailLink = () => {
-    const subject = articleDoi ? `Solicitação de artigo: ${articleDoi}` : 'Contato pelo ConectAves';
+    const subject = articleTitle ? `Solicitação de artigo: ${articleTitle}` : 'Contato pelo ConectAves';
     emailLink.href = `mailto:jonathan2008r@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(requestMessage.value)}`;
   };
   updateEmailLink();
