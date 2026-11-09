@@ -65,7 +65,7 @@ def build(destination: Path) -> None:
     config["baseurl"] = ""
     config["url"] = "http://localhost:4000"
     config["time"] = datetime.now(timezone.utc)
-    config["data"] = {}
+    config["data"] = load_data()
 
     source_paths = [ROOT / "index.html", ROOT / "404.html"]
     excluded_roots = {".git", ".preview", "_includes", "_layouts", "assets", "scripts"}

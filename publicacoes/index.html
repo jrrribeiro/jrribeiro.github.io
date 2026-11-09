@@ -3,7 +3,27 @@ layout: default
 title: Publicações
 nav_key: publications
 permalink: /publicacoes/
-description: Página destinada às publicações e produções científicas do ConectAves.
+description: Artigos científicos de Jonathan Ribeiro, com referências completas, DOI e opções de acesso.
 ---
-<header class="page-hero"><div class="container page-hero-grid"><div><span class="kicker">Publicações / 04</span><h1>Conhecimento para <em>circular.</em></h1></div><p>As publicações e outras produções relacionadas ao ConectAves serão reunidas aqui com referências e links de acesso.</p></div></header>
-<section class="section page-section"><div class="container editorial-grid"><div><span class="kicker">Bibliografia em organização</span><h2>O catálogo será construído aos poucos.</h2><p>A lista de publicações ainda não foi definida para este site. Quando estiver pronta, cada registro terá autoria, ano, título, veículo e link para a fonte.</p><a class="inline-link" href="{{ '/pesquisa/' | relative_url }}">Explore as áreas de pesquisa <span aria-hidden="true">↗</span></a></div><div class="publication-outline"><span class="outline-label">O que você encontrará aqui</span><div><span>01</span><strong>Artigos científicos</strong></div><div><span>02</span><strong>Outras produções</strong></div><div><span>03</span><strong>Dados e recursos relacionados</strong></div></div></div></section>
+<header class="page-hero"><div class="container page-hero-grid"><div><span class="kicker">Publicações / 04</span><h1>Conhecimento para <em>circular.</em></h1></div><p>Oito artigos publicados com participação de Jonathan Ribeiro. Consulte as referências e encontre as opções de acesso a cada trabalho.</p></div></header>
+<section class="section publications-section"><div class="container">
+  <div class="publications-intro"><div><span class="kicker">Artigos científicos</span><h2>Da pesquisa ao conhecimento compartilhado.</h2></div><p>Referências organizadas por ano de publicação da revista. Os registros duplicados no ORCID foram reunidos.</p></div>
+  <div class="publication-list">
+  {% for publication in site.data.publications %}
+    <article class="publication-card" id="artigo-{{ publication.doi | replace: '/', '-' | replace: '.', '-' }}">
+      <div class="publication-meta"><span>{{ publication.year }}</span><span>{{ forloop.index }} / 08</span></div>
+      <h3>{{ publication.title }}</h3>
+      <p class="publication-reference">{{ publication.reference }}</p>
+      <div class="publication-links" aria-label="Acessar o artigo {{ publication.title | escape }}">
+        <a href="https://doi.org/{{ publication.doi }}" target="_blank" rel="noopener noreferrer">DOI oficial ↗</a>
+        <a href="{{ publication.researchgate }}" target="_blank" rel="noopener noreferrer">{% if publication.rg_search %}Buscar no ResearchGate{% else %}ResearchGate{% endif %} ↗</a>
+        {% if publication.pdf_local %}<a href="{{ publication.pdf_local | relative_url }}" type="application/pdf" target="_blank" rel="noopener noreferrer">Baixar PDF ↗</a>
+        {% elsif publication.pdf_external %}<a href="{{ publication.pdf_external }}" target="_blank" rel="noopener noreferrer">PDF na revista ↗</a>
+        {% else %}<a href="{{ '/contato/' | relative_url }}?artigo={{ publication.doi }}">Solicitar cópia →</a>{% endif %}
+      </div>
+      {% if publication.license %}<small class="publication-license">{{ publication.license }}</small>{% endif %}
+    </article>
+  {% endfor %}
+  </div>
+  <p class="publications-note">Dados bibliográficos conferidos com ORCID e registros das revistas. A disponibilidade dos arquivos externos depende de cada editora ou plataforma.</p>
+</div></section>
